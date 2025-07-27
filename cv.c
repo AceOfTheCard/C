@@ -1,20 +1,19 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <time.h>
 #include <string.h>
 
+int main() {
+    const char *message = "Hello Stranger.\nWelcome to my CV.\nHere you are going to find really interesting things.\nFeel free to explore and find out what you would like :)!\n";
+    struct timespec ts;
 
+    ts.tv_sec = 0;
+    ts.tv_nsec = 200 * 300000L;
+    for (int i = 0; i < strlen(message); i++) {
+        printf("%c", message[i]);
+        fflush(stdout); // ensure the output appears immediately
+        nanosleep(&ts, NULL); // delay
+    }
 
-
-void printHelloMessage(){
-    printf("Hello, Dear.\n");
-    printf("So happy you are here\n");
-    printf("Welcome to my CV representation\n");
-    printf("This is not like the other CV, because I am not like the others.\n");
-}
-
-
-int main(){
-    printHelloMessage();
+    printf("\n");
     return 0;
-
 }
